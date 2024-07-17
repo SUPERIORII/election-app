@@ -1,0 +1,184 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+
+}
+
+/*---------Header Style--------------------*/
+
+.header {
+    width: 900px;
+    margin-left: 220px;
+    margin-bottom: 20px;
+    height: 100px;
+    padding-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.welcome-message {
+    color: rgb(148, 0, 0);
+}
+
+.profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 15px;
+    margin-right: 10px;
+}
+
+.dropdown-icon {
+    color: rgba(0,0,0,.7);
+    cursor: pointer;
+}
+
+.notification-icon {
+    width: 25px;
+    height: 25px;
+    margin-left: 20px;
+    color: rgba(0,0,0,.7);
+    cursor: pointer;
+}
+
+.notification-container {
+    position: relative;
+}
+
+.notification-count {
+    font-size: 15px;
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    background-color: rgb(238, 6, 6);
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+}
+
+/*---------Sidebar Style--------------------*/
+.sidebar {
+    background-color:rgb(226, 226, 226);
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 220px;
+}
+
+.upper-sidebar {
+    width: 100%;
+    padding: 1rem 2px;
+    margin-bottom: 80px;
+}
+
+.upper-sidebar span {
+    color: red;
+}
+
+.logo-description {
+    font-size: 21px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+.logo {
+    width: 100%;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding-left: 4px;
+    width: 170px;
+    border-radius: 20px;
+    padding: .4rem 1rem;
+    color: #464343;
+    z-index: 100;
+    cursor: pointer;
+    transition: background-color .2s ease-in-out;
+}
+
+.sidebar-link:last-child {
+    margin-top: 50px;
+    background-color: rgba(0,0,0,.1);
+    width: 180px;
+}
+
+.sidebar-link:hover {
+    background-color: rgba(0,0,0,.1);
+    font-weight: bold;
+    color: red;
+}
+
+.person-icon {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    z-index: 30;
+}
+
+
+/*---------main content Style--------------------*/
+
+.main-content {
+    margin-left: 240px;
+    width: 900px;
+}
+
+.top-candidates {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+}
+
+.candidate-container {
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,.1);
+    width: 280px;
+    height: 250px;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.candidate {
+    border: 3px solid rgba(0,0,0,.7);
+    padding: 2px 1rem;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.candidate-icon {
+    width: 100px;
+}
+
+/*-------Left Sidebar Style-----------------*/
+
+.right-sidebar {
+    background-color: white;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: calc(100% - 84%);
+}
