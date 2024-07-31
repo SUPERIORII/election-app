@@ -1,0 +1,19 @@
+GET http://localhost:3000/login
+
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "tinadukuly461@gmail.com",
+    "password":"tina"
+}
+###
+
+POST http://localhost:3000/roles
+Content-Type: application/json
+
+# {
+#     "Roles": "Candidate"
+# }
+
