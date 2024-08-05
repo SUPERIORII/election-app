@@ -94,7 +94,7 @@ body {
     position: fixed;
     left: 0;
     bottom: 0;
-    top: 0;
+    top: 4rem;
     width: 220px;
     background-color: #fff;
     padding-top: 90px;
@@ -102,8 +102,7 @@ body {
 
 .upper-sidebar {
     width: 100%;
-    padding: 1rem 2px;
-    margin-bottom: 80px;
+    padding: .1rem 2px;
 }
 
 .upper-sidebar span {
@@ -217,7 +216,7 @@ body {
     border-radius: 50%;
     margin-inline: auto;
     object-fit: cover;
-    object-position:  top;
+    object-position: top;
     border: 2px solid hsl(253, 45%, 59%);
   }
 
