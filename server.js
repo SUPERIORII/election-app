@@ -118,16 +118,12 @@ app.get('/roles', (req, res)=>{
     const data = {result:[]};
     
     EDATABASE.all(query,[], (err, rows)=>{
-        if(err) err.message;
+        if(err) return res.status(500).json(err.message);
 
+        console.log(rows);
 
-        rows.forEach(row=>{
-            data.result.push(row)
-           console.log(row)
-
-        })
         //res.render('roles', {rows});
-        res.json(rows)
+        //res.json(rows)
     })
 })
 
@@ -148,6 +144,25 @@ app.post('/roles', async(req, res)=>{
         console.log('Please Enter the Role for the user');
     }
     
+})
+
+//const sql = "SELECT * FROM user WHERE id=?";
+const updateSql = `UPDATE user SET WHERE id=?`;
+
+app.delete('/update/:id', (req, res)=>{
+    const deleteSql = `DELETE FROM user WHERE id=?`;
+
+    if(req.body.id === req.params.id) {
+        EDATABASE.run(deleteSql, [req.body.id],(err, result)=>{
+            if (err) return res.status(500).send('ERROR',err.message)
+            res.send(`user has been deleted`)
+        })
+    } else {
+        res.status(400).send(`you can not delete another user info`)
+        
+    }
+    
+
 })
 
 

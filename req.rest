@@ -1,19 +1,31 @@
-GET http://localhost:3000/login
+DELETE http://localhost:3000/update/5
+Content-Type: application/json
+
+{
+   "id": "4"
+}
 
 ###
 POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-    "email": "tinadukuly461@gmail.com",
-    "password":"tina"
+   {
+    "first_name": "John",
+    "middle_name": "M.",
+    "last_name": "Peter",
+    "DOB": "20-05-2000",
+    
+    "username": "john",
+    "password": "john"
+}
 }
 ###
 
 POST http://localhost:3000/roles
 Content-Type: application/json
 
-# {
-#     "Roles": "Candidate"
-# }
+{
+    "Roles": "Voter"
+}
 
