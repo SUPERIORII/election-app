@@ -1,111 +1,44 @@
 const sqlite3 = require('sqlite3').verbose();
+const cors = require('cors')
 const express = require('express');
 const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const EDATABASE = require('./database.js');
-
 const app = express();
 const PORT = 3000;
 
 
-const imgUpload = multer({storage:multer.memoryStorage()});
-let sql;
+//imported routes
+const navigation = require('./routers/navigation.js');
+const loginRoute = require('./routers/login-route.js');
+const registrationRoute = require('./routers/registration-route.js')
+const rolesRoute = require('./routers/roles-route.js')
 
+const savedImg = multer.diskStorage({
+    destination:(req,file, cb)=>{
+        cb(null, "./images")
+    },
+    filename:(req, file, cb)=>{
+        cb(null, "IMG"+ Date.now() + file.originalname)
+    }
+})
+
+//const imgUpload = multer({storage:multer.memoryStorage()});
+const imgUpload = multer({storage:savedImg})
 
 //middlewares
 app.use(express.json());
-app.use(bodyParser.urlencoded({extended:true}))
+app.use(cors());
+app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('public'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs'); 
 
 
-// Get routes
-app.get('/login', (req, res)=>{
-    res.render('login')
-})
-
-app.get('/dashboard', (req, res)=>{
-    res.render('dashboard')
-})
-
-app.get('/voter-registration', (req,res)=>{
-    res.render('voter-registration')
-})
-
-
-//post routes
-app.post('/voter-registration', imgUpload.single('file'), async(req,res)=>{
-    let {first_name, middle_name, last_name, DOB, email, username, password,file} = req.body;
-
-    
-    // const photo  = req.file.buffer;
-
-    sql= `SELECT * FROM auth WHERE email = ?`
-    const insertUserSql = "INSERT INTO user(`first_name`, `middle_name`, `last_name`, `DOB`) VALUES(?,?,?,?)";
-    const insertAuthSql ="INSERT INTO auth(`username`, `email`, `password`) VALUES(?,?,?)";
-    
-    EDATABASE.serialize(()=>{
-        
-        EDATABASE.get(sql,[email],async(err, result)=>{
-            if(err) return res.status(500).json(err.message);
-            if (result) return res.status(409).json("User already exist");
-            
-            
-            
-            //inseriting into the user table
-            EDATABASE.run(insertUserSql, [first_name, middle_name, last_name, DOB],(err, result)=>{
-                if (err) return res.status(500).json(err.message);
-                
-                if (result) return res.status(200).json('Insert into the user table successfully');       
-            })
-            
-            
-            const salt = await bcrypt.genSalt();
-            const hashedPassword = await bcrypt.hash(password, salt);
-            //hashing the password
-
-            EDATABASE.run(insertAuthSql, [username, email, hashedPassword], (err, result)=>{
-                if (err) return res.status(500).json(err.message);
-                if (result) return res.status(200).json("Insert into Auth Table Successfully");
-                
-            })
-
-
-            res.redirect('login');
-        })
-
-
-    })
-
-
-
-});
-
-
-app.post('/login', (req, res)=>{
-
-    const {email, password}= req.body;
-    const query = "SELECT * FROM auth WHERE email =?"
-    
-    EDATABASE.get(query,[email], async(err, result)=>{
-
-        if (err)return res.status(500).json(err.message);
-
-        if (!result) return res.status(405).json("Email do not exist in our database");
-
-        const comparedPassword = await bcrypt.compare(password, result.password);
-
-        if (!comparedPassword) {
-            return res.json("Incorrect password or Email");
-        } else {
-            res.status(302).redirect('dashboard');
-           
-        }
-
-    })
-    
- })
+//Using routes as middlewares
+app.use('/', navigation);
+app.use('/registration', registrationRoute);
+app.use('/roles', rolesRoute)
 
 
 
@@ -113,41 +46,39 @@ app.get('/party-registration', (req, res)=>{
     res.render('party-name');
 })
 
-app.get('/roles', (req, res)=>{
-    let query = `SELECT * FROM Roles`;
-    const data = {result:[]};
+// app.get('/roles', (req, res)=>{
+//     let query = `SELECT * FROM Roles`;
+//     const data = {result:[]};
     
-    EDATABASE.all(query,[], (err, rows)=>{
-        if(err) return res.status(500).json(err.message);
+//     EDATABASE.all(query,[], (err, rows)=>{
+//         if(err) return res.status(500).json(err.message);
 
-        console.log(rows);
+//         console.log(rows);
 
-        //res.render('roles', {rows});
-        //res.json(rows)
-    })
-})
+//         //res.render('roles', {rows});
+//         //res.json(rows)
+//     })
+// })
 
-app.post('/roles', async(req, res)=>{
-    const {Roles} = req.body;
-    let query = `INSERT INTO Roles(Roles) VALUES(?)`;
+// app.post('/roles', async(req, res)=>{
+//     const {Roles} = req.body;
+//     let query = `INSERT INTO Roles(Roles) VALUES(?)`;
     
-    try {
-        EDATABASE.run(query, [Roles], (err)=>{
-            if(err) {
-                res.status(500).json(err.message);
-            }
-            res.status(200);
-            res.json(`${Roles} is successfully entered the Role table`);
-        })
-    } catch (err) {
-        res.status(400)
-        console.log('Please Enter the Role for the user');
-    }
+//     try {
+//         EDATABASE.run(query, [Roles], (err)=>{
+//             if(err) {
+//                 res.status(500).json(err.message);
+//             }
+//             res.status(200);
+//             res.json(`${Roles} is successfully entered the Role table`);
+//         })
+//     } catch (err) {
+//         res.status(400)
+//         console.log('Please Enter the Role for the user');
+//     }
     
-})
+// })
 
-//const sql = "SELECT * FROM user WHERE id=?";
-const updateSql = `UPDATE user SET WHERE id=?`;
 
 app.delete('/update/:id', (req, res)=>{
     const deleteSql = `DELETE FROM user WHERE id=?`;
@@ -158,14 +89,28 @@ app.delete('/update/:id', (req, res)=>{
             res.send(`user has been deleted`)
         })
     } else {
-        res.status(400).send(`you can not delete another user info`)
-        
+        res.status(400).send(`you can not delete another user info`) 
     }
+    
+
+});
+
+app.get('/contestant', (req, res)=>{
+    res.render('contestants')
+})
+
+app.post('/contestant', imgUpload.single("photo"), (req, res)=>{
+    const {photo} = req.body
+    const buff= req.file
+    console.log(buff)
+    console.log('images uploading successfully')
+
+    // console.log(img);
     
 
 })
 
 
 app.listen(PORT, ()=>{
-    console.log(`Server is listening on port: ${PORT}`);
+    console.log(`Server is listening on port: http://localhost:${PORT}`);
 })

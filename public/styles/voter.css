@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(0, 0, 0, .2);
+}
+
+
+.voters-container {
+    max-width: 800px;
+    margin-inline: auto;
+    margin-top: 30px;
+    background-color: white;
+}
+
+/* =================Buttons Style========================= */
+
+.voter-status-btns {
+    /* background-color: lightblue; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-inline: auto;
+    margin: 10px 20px 20px 0;
+    padding-top: 20px;
+}
+
+.btn {
+    background-color: none;
+    font-size: 16 px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+    padding: .4rem;
+    background: none;
+    border-radius: 20px;
+    width: 180px;
+}
+
+.active {
+    background: rgba(0, 0, 0,.1);
+    font-weight: bold;
+}
+
+
+/* =================Status Flexbox Style========================= */
+
+.status-flexbox {
+}
+
+.registered-voter, 
+.voter-active-status {
+    margin-left:20px;
+}
+
+.voter-active-status {
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+/* =================Voter Wrapper Style========================= */
+.voters-wrapper {
+    display: flex;
+    padding: .5rem;
+    border-bottom: 1px solid rgba(139, 136, 136, 0.2);
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
+}
+
+.voters-wrapper:hover {
+    background: rgba(0, 0, 0,.1);
+}
+
+.voter-profile-container {
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.voter-picture {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.alert-sign {
+    width: 15px;
+    height: 15px;
+    background-color: rgb(1, 146, 1);
+    border: 2px solid white;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.voter-info {
+    margin-left: 15px;
+}
+
+.voter-name {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.role {
+    font-weight: bold;
+} 
+
+.light {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: "poppins", Arial, Helvetica, sans-serif;
+}
+

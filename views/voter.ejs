@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Dashboard</title>
+    <link rel="stylesheet" href="../styles/dashboard.css">
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <script src="../scripts/script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+         <header class="header">
+
+            <div class="menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="menu-icon" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"></path>
+                  </svg>
+            </div>
+
+            <div class="upper-sidebar">
+                 <h1 class="logo-description">Elect<span>ion</span> up<span>date</span></h1>
+            </div>
+                
+            <div class="right-header">
+                <div class="welcome-message">Welcome, Abraham</div>
+                <span class='FAQ'> FAQS</span>
+    
+                <div class="notification-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="notification" viewBox="0 0 16 16">
+                        <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"></path>
+                    </svg>
+                    <div class='notificaiton-count'>3</div>
+                </div> 
+    
+                <div class="profile-wrapper">
+                    <!-- <img class='profile-picture' src="../images/profile.png" alt="Profile"/> -->
+
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="profile-picture" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"></path>
+                    </svg>
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="dropdown" viewBox="0 0 16 16">
+                        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"></path>
+                    </svg> -->
+                </div>
+    
+            </div>
+         </header>
+
+
+         <aside class="sidebar">
+
+            <a href="/dashboard" class="sidebar-link" data-link = "dashboard">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="person-icon" viewBox="0 0 16 16">
+                    <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"></path>
+                  </svg>
+                <div>Dashboard</div>
+            </a>
+
+            <a href="/login" class="sidebar-link"  data-link = "contestant">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="30" height="30" class="person-icon" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"></path>
+                </svg>
+                <div>Contestants</div>
+            </a>
+
+            <a href="/voter" class="sidebar-link" data-link = "voters">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="person-icon" viewBox="0 0 16 16">
+                    <path d="M3.75 0a1 1 0 0 0-.8.4L.1 4.2a.5.5 0 0 0-.1.3V15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4.5a.5.5 0 0 0-.1-.3L13.05.4a1 1 0 0 0-.8-.4zM15 4.667V5H1v-.333L1.5 4h6V1h1v3h6z"/>
+                  </svg>
+                <div>Voters</div>
+            </a>
+            
+            <a href="/parties" class="sidebar-link" data-link = "parties">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="person-icon" viewBox="0 0 16 16">
+                    <path d="M15.985 8.5H8.207l-5.5 5.5a8 8 0 0 0 13.277-5.5zM2 13.292A8 8 0 0 1 7.5.015v7.778zM8.5.015V7.5h7.485A8 8 0 0 0 8.5.015"/>
+                </svg>
+                <div>Parties</div>
+            </a>
+            
+            <a href="/user" class="sidebar-link" data-link = "user">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="30" height="30" class="person-icon" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"></path>
+                </svg>
+                <div>Users</div>
+            </a>
+
+            <div class="sidebar-link">
+                <div class="logout">Logout</div>
+            </div>
+            
+        </aside>
+        
+        
+        <main class="main-container">
+
+            <article class="voters-container">
+            
+                <div class="voter-status-btns">
+                    <button class="registered-voter-btn btn active" data-button="registered">Registered Voter</button>
+                    <button class="voter-status-btn btn" data-button="status">Voters Status</button>
+                </div>
+            
+            
+                <div class="status-flexbox">
+            
+                    <div class="register-voter-wrapper">
+                      
+                        <section class="registered-voter">
+                            <div class="voters-wrapper">
+                                    <div class="voter-profile-container">
+                                        <img class="voter-picture" src="../images/profile.png" alt="">
+                                        <div class="alert-sign"></div>
+                                    </div>
+                    
+                                    <div class="voter-info">
+                                        <div class="voter-name">Jumah F. Kromah</div>
+                                        <div class="status">Status: <span>Registered</span></div>
+                                        <div class="role">Role: Admin</div>
+                                    </div>
+                            </div>
+                        </section>
+            
+                        <section class="registered-voter" data-id="registered-voter">
+                            <div class="voters-wrapper">
+                                    <div class="voter-profile-container">
+                                        <img class="voter-picture" src="../images/profile.png" alt="">
+                                        <div class="alert-sign"></div>
+                                    </div>
+                    
+                                    <div class="voter-info">
+                                        <div class="voter-name">Jumah F. Kromah</div>
+                                        <div class="status">Status: <span>Registered</span></div>
+                                        <div class="role">Role: Admin</div>
+                                    </div>
+                            </div>
+                        </section>
+            
+                        <section class="registered-voter">
+                            <div class="voters-wrapper">
+                                    <div class="voter-profile-container">
+                                        <img class="voter-picture" src="../images/profile.png" alt="">
+                                        <div class="alert-sign"></div>
+                                    </div>
+                    
+                                    <div class="voter-info">
+                                        <div class="voter-name">Jumah F. Kromah</div>
+                                        <div class="status">Status: <span>Registered</span></div>
+                                        <div class="role">Role: Admin</div>
+                                    </div>
+                            </div>
+                        </section>
+            
+                    </div>
+            
+                    <section class="voter-active-status">
+                        <div>No Result Now</div>
+                    </section>
+            
+                </div>
+            
+            
+            
+            
+            </article>
+            
+        </main>
+        
+        <section class="left-sidebar">
+            <div class="party-wrapper">
+                <div class="heading light">Party's Update</div>
+                <div class="party-list-container">
+                    <div class="party-name">United People Development</div>
+                    <div class="party-list">
+                        <div class="party-logo">
+                            <div class="index">01</div>
+                            <img class="logo" id="logo" src="../background.jpg" alt="">
+                        </div>
+        
+                        <div class="progess-container">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="progress-percent">40%</div>
+                    </div>
+    
+                </div>
+    
+                
+                <div class="party-list-container">
+                    <div class="party-name">Green Party</div>
+                    <div class="party-list">
+                        <div class="party-logo">
+                            <div class="index">01</div>
+                            <img class="logo" id="logo" src="../background.jpg" alt="">
+                        </div>
+        
+                        <div class="progess-container">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="progress-percent">40%</div>
+                    </div>
+    
+                </div>
+    
+                <div class="party-list-container">
+                    <div class="party-name">Progress Change</div>
+                    <div class="party-list">
+                        <div class="party-logo">
+                            <div class="index">02</div>
+                            <img class="logo" id="logo" src="../background.jpg" alt="">
+                        </div>
+        
+                        <div class="progess-container">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="progress-percent">40%</div>
+                    </div>
+    
+                </div>
+    
+                <div class="party-list-container">
+                    <div class="party-name">Youth Empowerment Party</div>
+                    <div class="party-list">
+                        <div class="party-logo">
+                            <div class="index">01</div>
+                            <img class="logo" id="logo" src="../background2.jpg" alt="">
+                        </div>
+        
+                        <div class="progess-container">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="progress-percent">40%</div>
+                    </div>
+    
+                </div>
+
+            </div>
+
+            <div class="party-wrapper">
+                <div class="heading light">Party's Update</div>
+                <div class="party-list-container">
+                    <div class="party-name">United People Development</div>
+                    <div class="party-list">
+                        <div class="party-logo">
+                            <div class="index">01</div>
+                            <img class="logo" id="logo" src="../background.jpg" alt="">
+                        </div>
+        
+                        <div class="progess-container">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="progress-percent">40%</div>
+                    </div>
+    
+                </div>
+    
+                
+                <div class="party-list-container">
+                    <div class="party-name">Green Party</div>
+                    <div class="party-list">
+                        <div class="party-logo">
+                            <div class="index">01</div>
+                            <img class="logo" id="logo" src="../background.jpg" alt="">
+                        </div>
+        
+                        <div class="progess-container">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="progress-percent">40%</div>
+                    </div>
+    
+                </div>
+    
+                <div class="party-list-container">
+                    <div class="party-name">Progress Change</div>
+                    <div class="party-list">
+                        <div class="party-logo">
+                            <div class="index">02</div>
+                            <img class="logo" id="logo" src="../background.jpg" alt="">
+                        </div>
+        
+                        <div class="progess-container">
+                            <div class="progress"></div>
+                        </div>
+                        <div class="progress-percent">40%</div>
+                    </div>
+    
+                </div>
+
+            </div>
+
+
+
+        </section>
+
+       
+
+    </div>
+</body>
+</html>
+
+
+

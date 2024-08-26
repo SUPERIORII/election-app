@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+  scrollbar-width:thin;
+ 
+}
+
+form {
+    width: 100%;
+    max-width: 700px;
+    margin-inline: auto;
+
+    padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    
+    background-color: white;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="date"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: green;
+  }
+
+  .password-icon {
+    position: absolute;
+    top: 10px;
+    right: 50px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.password-icon button {
+    width: 18px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+
+
+.password-container.show .eye {
+    display: none;
+  }
+
+.password-container:not(.show) .eyeslash{
+    display: none;
+}
+
+.registration-btn {
+    font-size: 17px;
+    padding: .5rem 3rem;
+    background: green;
+    color: white;
+}
+
+label {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.upload-box {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 5px;
+  border: 1px dashed green;
+  cursor: pointer;
+}
+
+input[type= "file"] {
+  font-size: 20px;
+}
+
+.selection {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+select {
+  width: 200px;
+  height: 40px;
+  outline: none;
+  border: 1px solid #ccc;
+  font-size: 18px;
+  padding: .21rem;
+  border-radius: 4px ;
+}
+
+.position-wrapper, .party-wrapper {
+  display: none;
+}
+
+.active-select {
+  display: block;
+}

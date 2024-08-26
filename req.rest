@@ -1,31 +1,22 @@
-DELETE http://localhost:3000/update/5
+
+POST http://localhost:3000/logout
 Content-Type: application/json
 
-{
-   "id": "4"
-}
 
 ###
+
+
 POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-   {
-    "first_name": "John",
-    "middle_name": "M.",
-    "last_name": "Peter",
-    "DOB": "20-05-2000",
-    
-    "username": "john",
-    "password": "john"
+    "email": "hawabromah@gmail.com",
+    "password": "hawa"
 }
-}
+
 ###
 
-POST http://localhost:3000/roles
+GET http://localhost:3000/dashboard
 Content-Type: application/json
 
-{
-    "Roles": "Voter"
-}
 
